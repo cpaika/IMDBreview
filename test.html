@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Search Box Example 1</title>
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+<!-- CSS styles for standard search box -->
+<script src="/socket.io/socket.io.js"></script>
+<style type="text/css">
+	.col
+	{
+   		float: left;
+   		font-size: 24px;
+   	 	
+	}
+	.row
+	{
+    		padding: 5px 5px; 
+    		height: auto;
+    		overflow: auto;
+	}
+	#tfheader{
+		background-color:#c3dfef;
+	}
+	#data
+	{
+		background-color:#6698B6;
+		padding: 20px;
+	}
+	#Header
+	{
+		background-color:#6698B6;
+		padding:20px;
+	}
+	#text
+	{
+		passing:20px;
+	}
+	#tfnewsearch{
+		float:center;
+		padding:20px;
+	}
+	#rentMovie
+	{
+		float:left;
+		padding:20px;
+	}
+	.tftextinput{
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		border:1px solid #0076a3; border-right:0px;
+		border-top-left-radius: 5px 5px;
+		border-bottom-left-radius: 5px 5px;
+	}
+	.tfbutton {
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		color: #ffffff;
+		border: solid 1px #0076a3; border-right:0px;
+		background: #0095cd;
+		background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+		background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+		border-top-right-radius: 5px 5px;
+		border-bottom-right-radius: 5px 5px;
+	}
+	.tfbutton:hover {
+		text-decoration: none;
+		background: #007ead;
+		background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+		background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+	}
+	/* Fixes submit button height problem in Firefox */
+	.tfbutton::-moz-focus-inner {
+	  border: 0;
+	}
+	.tfclear{
+		clear:both;
+	}
+</style>
+</head>
+<body>
+	<script>
+		var socket = io();
+		socket.on("message", function(data)
+		{
+			if(data.message == "hello world")
+			{
+				
+			}
+			else
+			{
+				document.getElementById("data").innerHTML = data.content;
+				
+			}
+		});
+	</script>
+	<!-- HTML for SEARCH BAR -->
+	<div id="tfheader">
+		<div id="text">
+			Welcome to the IMDB movie database!  Search and rent movies below!
+		</div>
+		<div class="row">
+		<div class="col">
+		<form id="tfnewsearch" method="POST" action="http://71.234.176.156:8888/search">
+		        <input type="text" class="tftextinput" name="searchterm" size="21" maxlength="120"><input type="submit" value="Search for Movie" class="tfbutton">
+		</form>
+		</div>
+		<div class="col">
+		<form id="rentMovie" method="POST" action="http://71.234.176.156:8888/rent">
+		        <input type="text" class="tftextinput" name="movieid" size="21" maxlength="120"><input type="submit" value="Rent Movie" class="tfbutton">
+		</form>
+		</div>
+		<div class="col">
+		<form id="rentMovie" method="POST" action="http://71.234.176.156:8888/return">
+		        <input type="text" class="tftextinput" name="returnid" size="21" maxlength="120"><input type="submit" value="Return Movie" class="tfbutton">
+		</form>
+		</div>
+		</div>
+	<div class="tfclear"></div>
+	</div>
+	
+</body>
+</html>
+
+

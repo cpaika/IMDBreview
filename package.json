@@ -1,0 +1,29 @@
+{
+  "name": "IMDBReview",
+  "version": "1.0.0",
+  "description": "IMDB Review Site",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cpaika/IMDBreview.git"
+  },
+  "keywords": [
+    "IMDB"
+  ],
+  "author": "Chris, Josh, Yujing, Hayley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cpaika/IMDBreview/issues"
+  },
+  "homepage": "https://github.com/cpaika/IMDBreview",
+  "dependencies": {
+    "body-parser": "^1.9.3",
+    "cookie-parser": "^1.3.3",
+    "cookie-session": "^1.1.0",
+    "express": "^4.10.4",
+    "socket.io": "^1.2.1"
+  }
+}

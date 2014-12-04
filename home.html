@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>IMDB Find and Rate</title>
+	<script src="/socket.io/socket.io.js"></script>
+</head>
+ 
+<body id="home" class="home">
+	<script>
+		var socket = io.connect("http://71.234.176.156:8888/");
+		socket.on("message", function(data)
+		{
+			if(data.login == "Failed")
+			{
+				document.getElementById("isAuth").innerHTML = "ACCESS DENIED";
+			}
+			if(data.login == "Success")
+			{
+				document.getElementById("isAuth").innerHTML = 'Successfully authenticated!<br><a href="http://71.234.176.156:8888/search"> Click here to proceeed </a>';
+			}
+		});
+	</script>
+	<div id="isAuth">Checking for your login </div>
+</body>
+</html>
